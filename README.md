@@ -67,7 +67,7 @@ pnpm build
 
 ## Presentación
 
-🔗 **Link al video demostrativo:** [...]
+🔗 **Link al video demostrativo:** [https://drive.google.com/drive/folders/1DhWLSKAERJpsOdrCuN2GcJ-kKthfklH5?usp=drive_link]
 
 ## Autor
 
