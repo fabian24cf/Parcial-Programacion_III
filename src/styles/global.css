@@ -1,0 +1,413 @@
+:root {
+  --primary: #2d5a4c;
+  --bg-color: #fcfcfc;
+  --surface: #ffffff;
+  --text-main: #222222;
+  --text-muted: #888888; 
+  --accent: #f28b24; 
+  --danger: #e74c3c;
+  --border-color: #eeeeee;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+/* =========================================
+  HEADER
+========================================= */
+.app-header {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.app-header h1 span {
+  font-weight: 400;
+}
+
+.nav-links, .nav-link {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a, .nav-link a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links a:hover, .nav-link a:hover {
+  opacity: 0.8;
+}
+
+.cart-badge {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.1rem 0.5rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+/* =========================================
+  LAYOUT PRINCIPAL (CATÁLOGO)
+========================================= */
+.layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  padding: 2rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sidebar h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar button {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+
+.sidebar button.active {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.sidebar button:hover:not(.active) {
+  color: var(--primary);
+  background-color: rgba(45, 90, 76, 0.05);
+}
+
+/* --- MAIN & BUSCADOR --- */
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  display: none; 
+}
+
+.subtitle {
+  display: none;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.8rem 1rem 0.8rem 2.5rem; 
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 2rem;
+
+}
+
+/* =========================================
+  GRILLA DE PRODUCTOS
+========================================= */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem 1.5rem;
+}
+
+.product-card {
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+.product-card .image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  border-radius: 50%; 
+  margin-bottom: 1rem;
+}
+
+.product-card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card .info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card .name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.product-card .desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+
+.product-card .info {
+  position: relative;
+}
+
+.product-card .price {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+button.add-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: opacity 0.2s;
+}
+
+button.add-btn:hover:not([disabled]) {
+  opacity: 0.9;
+}
+
+button.add-btn[disabled] {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* =========================================
+  VISTA DEL CARRITO
+========================================= */
+
+.layout:has(#cart-container) {
+  grid-template-columns: 1fr;
+  max-width: 1000px; 
+}
+
+
+.layout:has(#cart-container) .page-title {
+  display: block;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+
+#cart-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cart-item .thumb {
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item .ci-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.cart-item .ci-price {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.remove-btn:hover {
+  color: var(--danger);
+  text-decoration: underline;
+}
+
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+}
+
+.qty-controls button {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-main);
+  font-weight: bold;
+}
+
+
+.cart-summary-box { 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cart-summary-box h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+#cart-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text-main);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.btn-clear {
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  transition: all 0.2s;
+}
+
+.btn-clear:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+/* =========================================
+  TOAST NOTIFICATION (Mensaje de carrito)
+========================================= */
+.toast {
+  position: fixed;
+  bottom: -100px;
+  right: 20px;
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+  z-index: 1000;
+}
+
+.toast.visible {
+  bottom: 20px;
+}

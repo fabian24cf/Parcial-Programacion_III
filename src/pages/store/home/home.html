@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Store - Catalogo</title>
+</head>
+<body>  
+    <header class="app-header">
+        <h1>Food <span>Store</span></h1>
+        <nav class="nav-links">  
+            <a href="./home.html">Catálogo</a>
+            <a href="../cart/cart.html">Carrito <span class="cart-badge" id="cart-count">0</span></a>
+        </nav>
+    </header>
+    <main class="layout">
+        <aside class="sidebar">
+            <h2>Categorias</h2>
+            <ul id="category-list"></ul>
+        </aside>
+    <section class="main">
+        <h2 class="page-title">Nuestro Menú</h2>
+        <p class="subtitle">Elegir tus platos favoritos</p>
+
+        <input type="text" id="search-input" class="search-box" placeholder="Buscar por nombre..." autocomplete="off"/>
+        
+        <div id="products-container" class="products-grid"></div>
+    </section>    
+    </main>
+
+    <div id="toast" class="toast">Producto agregado al carrito</div>
+
+    <script type="module" src="./home.ts"></script>
+</body>
+</html>

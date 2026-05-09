@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Store · Carrito</title>
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Food <span>Store</span></h1>
+      <nav class="nav-links">
+        <a href="../home/home.html">Catálogo</a>
+        <a href="./cart.html">
+          Carrito <span class="cart-badge" id="cart-count">0</span>
+        </a>
+      </nav>
+    </header>
+
+    <main class="layout" style="grid-template-columns: 1fr; max-width: 800px;">
+      <section class="main">
+        <h2 class="page-title">Tu carrito</h2>
+        <p class="subtitle">Revisá tu selección antes de continuar</p>
+        <div id="cart-container"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./cart.ts"></script>
+  </body>
+</html>
